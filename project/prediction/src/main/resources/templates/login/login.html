@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆页</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div style="margin: 0 auto">
+    <input id="user" placeholder="账号">
+    <input id="password" placeholder="password">
+    <button id="submit" onclick="login()">登录</button>
+    <button id="logout" onclick="logout()">退出登录</button>
+
+</div>
+</body>
+
+<script>
+    function login() {
+        var param = {
+            name:$("#user").val(),
+            psw:$("#password").val()
+        };
+
+        $.post("/prediction/login/submit",param,function (data) {
+            if (data=="ok") {
+                window.location.href = 'http://' + location.host +"/prediction";
+            } else {
+                window.location.href = 'http://' + location.host + '/prediction/login'
+            }
+        })
+    }
+
+    function logout() {
+        $.post("/prediction/logout",function (data) {
+            // alert("登录");
+        })
+    }
+</script>
+</html>
