@@ -2,6 +2,7 @@ package cn.com.dataming.prediction.common;
 
 import cn.com.dataming.entity.module.UserEntity;
 import cn.com.dataming.core.utils.HttpsUtil;
+import cn.com.dataming.prediction.util.Constants;
 import com.alibaba.fastjson.JSON;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +30,7 @@ public class LoginController {
     @RequestMapping(value = "/login/submit")
     @ResponseBody
     public Object submit(UserEntity t,HttpServletRequest request) throws IOException {
-        String url = "http://localhost:9091/predictionapi/login/checkUserInfo";
+        String url = Constants.domain + "/login/checkUserInfo";
         String rev = HttpsUtil.doPost(url,t);
         String res = "";
         UserEntity user = JSON.parseObject(rev,UserEntity.class);
