@@ -19,7 +19,7 @@ public class LoginController {
 
     @RequestMapping("/checkUserInfo")
     @ResponseBody
-    public String login(@RequestBody String getStr, HttpServletRequest request) {
+    public UserEntity login(@RequestBody String getStr, HttpServletRequest request) {
         UserEntity user = JSON.parseObject(getStr,UserEntity.class);
         return loginService.login(user,request);
     }

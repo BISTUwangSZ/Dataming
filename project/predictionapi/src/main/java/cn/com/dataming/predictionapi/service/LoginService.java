@@ -14,14 +14,8 @@ public class LoginService {
     @Autowired
     private LoginDao loginDao;
 
-    public String login(UserEntity condition, HttpServletRequest request){
+    public UserEntity login(UserEntity condition, HttpServletRequest request){
         UserEntity user = loginDao.checkUserInfo(condition);
-        if (user != null) {
-            HttpSession session = request.getSession();
-            session.setAttribute("user", condition);
-            return "ok";
-        } else {
-            return null;
-        }
+        return user;
     }
 }

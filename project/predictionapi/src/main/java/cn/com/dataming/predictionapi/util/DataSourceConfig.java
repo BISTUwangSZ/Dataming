@@ -34,7 +34,7 @@ import java.util.Properties;
  */
 @Configuration
 @Component
-@PropertySource(value = {"/config/jdbc.properties","application.properties"})
+@PropertySource(value = {"application.properties"})
 public class DataSourceConfig extends LogFactory {
 
     @Value("${jdbc.driverClassName.db}")

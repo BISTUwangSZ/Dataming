@@ -19,7 +19,7 @@
     function login() {
         var param = {
             name:$("#user").val(),
-            psw:$("#password").val()
+            password:$("#password").val()
         };
 
         $.post("/prediction/login/submit",param,function (data) {
